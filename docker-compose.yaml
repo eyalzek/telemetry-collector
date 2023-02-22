@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  telemetry:
+    build: .
+    image: telemetry:dev
+    ports:
+      - '8000:8000'
+    environment:
+      - DATABASE_URL=postgresql://user:password@db/db
+    entrypoint: ['uvicorn', '--host=0.0.0.0','main:app', '--reload']
+    volumes:
+      - ./src:/usr/src/app
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  postgres:
