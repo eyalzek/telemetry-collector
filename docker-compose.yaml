@@ -7,7 +7,6 @@ services:
     ports:
       - '8000:8000'
     environment:
-      - DATABASE_API=postgresql+asyncpg
       - DATABASE_HOST=db
       - DATABASE_PASSWORD=password
       - DATABASE_USER=user
