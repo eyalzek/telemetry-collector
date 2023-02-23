@@ -2,8 +2,8 @@ import os
 
 
 class Config:
-    # DATABASE_API = os.getenv('DATABASE_API', 'postgresql+asyncpg')
-    DATABASE_API = os.getenv('DATABASE_API', 'postgresql')
+    DATABASE_API = os.getenv('DATABASE_API', 'postgresql+asyncpg')
+    # DATABASE_API = os.getenv('DATABASE_API', 'postgresql')
     DATABASE_HOST = os.getenv('DATABASE_HOST')
     DATABASE_NAME = os.getenv('DATABASE_NAME', 'requests')
     DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
