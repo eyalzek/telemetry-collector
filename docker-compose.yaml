@@ -7,8 +7,10 @@ services:
     ports:
       - '8000:8000'
     environment:
-      - DATABASE_URL=postgresql://user:password@db/db
-    entrypoint: ['uvicorn', '--host=0.0.0.0','main:app', '--reload']
+      - DATABASE_HOST=db
+      - DATABASE_PASSWORD=password
+      - DATABASE_USER=user
+    entrypoint: ['docker-entrypoint.sh', 'uvicorn', '--host=0.0.0.0','main:app', '--reload']
     volumes:
       - ./src:/usr/src/app
 
@@ -17,10 +19,10 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data/pgdata
     environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=db
       - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=requests
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=user
 
 volumes:
   postgres:

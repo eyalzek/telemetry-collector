@@ -7,6 +7,7 @@ COPY requirements.txt .
 RUN apk add --no-cache build-base libpq-dev &&\
     pip install -r requirements.txt
 
+COPY bin/docker-entrypoint.sh /usr/bin/
 COPY src/* .
 
-ENTRYPOINT [ 'uvicorn', 'main:app' ]
+ENTRYPOINT [ 'docker-entrypoint.sh', 'uvicorn', 'main:app' ]
