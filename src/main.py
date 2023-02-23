@@ -1,13 +1,10 @@
 from fastapi import FastAPI, HTTPException
-# from sqlalchemy.orm import Session
 from pydantic import ValidationError
 
-# import crud
 import models
 import schemas
 from database import db
 
-# models.Base.metadata.create_all(bind=engine)
 db.init()
 
 app = FastAPI()

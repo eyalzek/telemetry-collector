@@ -1,13 +1,9 @@
 import os
 
-# from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 from config import Config
 
-
-# engine = create_engine(Config.DATABASE_CONFIG)
-# SessionLocal = sessionmaker(autoflush=False, bind=engine)
 
 Base = declarative_base()
 
