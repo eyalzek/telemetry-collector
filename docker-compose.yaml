@@ -10,7 +10,6 @@ services:
       - DATABASE_HOST=db
       - DATABASE_PASSWORD=password
       - DATABASE_USER=user
-      - UVICORN_HOST=0.0.0.0
       - UVICORN_RELOAD=true
     volumes:
       - ./src:/usr/src/app
