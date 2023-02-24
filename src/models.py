@@ -36,11 +36,11 @@ class Request(Base):
     async def create(cls, **kwargs):
         request = cls(**kwargs)
         db.add(request)
-        try:
-            await db.commit()
-        except Exception:
-            await db.rollback()
-            raise
+        await db.commit()
+        # try:
+        # except Exception:
+            # await db.rollback()
+            # raise
         return request
 
     @classmethod
