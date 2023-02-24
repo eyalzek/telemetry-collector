@@ -23,7 +23,7 @@ resource "google_cloudbuild_trigger" "telemetry_pipeline" {
     owner = "eyalzek"
     name  = "telemetry-collector"
     push {
-      branch = "^feature/async-try1$"
+      branch = "^main$"
     }
   }
 
